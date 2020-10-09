@@ -20,10 +20,10 @@ class CheckoutCest
      */
     public function noInventoryIsReservedAndStockHasBeenDeducted(Step\Acceptance\Magento $I)
     {
-        $productId = $I->createSimpleProduct('amp_no_res_and_deduct', 10);
+        $productId = $I->createSimpleProduct('casio bag sa', 10);
 
         $cartId = $I->getGuestQuote();
-        $I->addSimpleProductToQuote($cartId, 'amp_no_res_and_deduct', 1);
+        $I->addSimpleProductToQuote($cartId, 'casio bag sa', 1);
         $I->completeGuestCheckout($cartId);
 
         //Prevent all writes to the inventory_reservations table
