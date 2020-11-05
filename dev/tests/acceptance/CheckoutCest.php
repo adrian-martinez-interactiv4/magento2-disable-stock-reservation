@@ -83,6 +83,7 @@ class CheckoutCest
 
         $I->amBearerAuthenticated(Step\Acceptance\Magento::ACCESS_TOKEN);
         $I->haveHttpHeader('Content-Type', 'application/json');
+        $I->sendPOSTAndVerifyResponseCodeIs200("V1/order/{$orderId}/invoice");
         $I->sendPOSTAndVerifyResponseCodeIs200("V1/order/{$orderId}/ship");
 
         $newQty = $I->grabFromDatabase('cataloginventory_stock_item', 'qty', ['product_id' => $productId]);
